@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f27da2555766c2a78ea03dbb1966c423",
+    "content-hash": "14dce607daf83d859a9c062111aea5be",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -65,11 +65,17 @@
         },
         {
             "name": "twogether/laravel-url-signer",
-            "version": "dev-master",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Twogether/laravel-url-signer.git",
+                "reference": "f4e52ab287e0fd786dbf784921a8c182bbb43d1e"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/kieran/Curious/url_signer",
-                "reference": "2f2c6b56a019f7de4a49b89e52bfe423d5a96083"
+                "type": "zip",
+                "url": "https://api.github.com/repos/Twogether/laravel-url-signer/zipball/f4e52ab287e0fd786dbf784921a8c182bbb43d1e",
+                "reference": "f4e52ab287e0fd786dbf784921a8c182bbb43d1e",
+                "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
@@ -92,29 +98,28 @@
                     "Twogether\\LaravelURLSigner\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Twogether\\LaravelURLSignerTests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "Signs and validates URLs with public/private keys",
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/Twogether/laravel-url-signer/issues",
+                "source": "https://github.com/Twogether/laravel-url-signer/tree/2.2.1"
+            },
+            "time": "2022-03-15T16:10:02+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "twogether/laravel-url-signer": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.2.9|^8.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-openssl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
