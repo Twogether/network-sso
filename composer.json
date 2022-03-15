@@ -1,0 +1,23 @@
+{
+  "name": "twogether/network-sso",
+  "description": "Twogether Network SSO Client",
+  "type": "library",
+  "license": "MIT",
+
+  "require": {
+    "php": "^7.2.9|^8.0",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "twogether/laravel-url-signer": "dev-master",
+    "firebase/php-jwt": "^5.2|^6.0"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Twogether\\NetworkSSO\\": "src/"
+    }
+  },
+
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
