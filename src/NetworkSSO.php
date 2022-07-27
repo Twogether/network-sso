@@ -169,7 +169,6 @@ class NetworkSSO
 
     private function getSignedUrl(string $base, $user_agent, $parameters = [])
     {
-        if(!$user_agent) { $user_agent = trim($_SERVER['HTTP_USER_AGENT']); }
         if(!$user_agent) { $user_agent = trim($_SERVER['HTTP_USER_AGENT'] ?? ''); }
         $base = $base . (strpos($base,"?") === false ? '?' : '&').'ua='.sha1($user_agent);
 
