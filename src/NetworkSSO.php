@@ -13,6 +13,7 @@ class NetworkSSO
     private $app_id;
     private $idp_host;
     private $private_key;
+    private $idp_public_key;
     private $urlSigner;
     private $cacheBroker;
     private $additional_login_parameters;
@@ -32,6 +33,7 @@ class NetworkSSO
         $this->idp_host = $idp_host;
         $this->cacheBroker = $cacheBroker;
         $this->additional_login_parameters = [];
+        $this->idp_public_key = $idp_public_key;
         $this->urlSigner = new SignedUrlFactory(
             $this->app_id,
             $cacheBroker,
@@ -126,9 +128,27 @@ class NetworkSSO
     {
         $payload = json_decode($payload);
 
+        // First, validate the payload signature. Since we're
+        // encrypting with the PUBLIC key, we want to be certain
+        // that it was the IDP that encrypted this. Even if
+        // the URL was somehow intercepted.
+
+        // This will become mandatory once IDPs are updated.
+        if(
+            property_exists($payload,'signature') &&
+            !openssl_verify(
+                $payload->payload,
+                base64_decode($payload->signature),
+                KeyFormatter::fromString($this->idp_public_key),
+                OPENSSL_ALGO_SHA256
+            )
+        ) {
+            throw new InvalidPayload();
+        }
+
         try {
 
-            // First decrypt the key
+            // Now decrypt the key
 
             openssl_private_decrypt(
                 base64_decode($payload->encrypted_key),
