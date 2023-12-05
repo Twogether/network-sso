@@ -91,9 +91,13 @@ class NetworkSSO
         return ($params['action'] ?? null) === 'refresh';
     }
 
-    public function getLogoutUrl(string $user_agent = null)
+    public function getLogoutUrl(string $user_agent = null, array $query = [])
     {
-        return $this->getSignedUrl($this->getHostUrl("/sso/logout"),$user_agent,['action' => 'logout']);
+        return $this->getSignedUrl(
+            $this->getHostUrl("/sso/logout"),
+            $user_agent,
+            array_merge(['action' => 'logout'], $query)
+        );
     }
 
     public function getLoginReturnUrl(string $user_agent = null)
