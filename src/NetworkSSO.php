@@ -133,9 +133,8 @@ class NetworkSSO
         // that it was the IDP that encrypted this. Even if
         // the URL was somehow intercepted.
 
-        // This will become mandatory once IDPs are updated.
         if(
-            property_exists($payload,'signature') &&
+            !property_exists($payload,'signature') ||
             !openssl_verify(
                 $payload->payload,
                 base64_decode($payload->signature),
@@ -143,7 +142,7 @@ class NetworkSSO
                 OPENSSL_ALGO_SHA256
             )
         ) {
-            throw new InvalidPayload();
+            throw new InvalidPayload('Payload signature is missing or invalid');
         }
 
         try {
