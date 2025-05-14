@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ca1de8a42edd8465b59da5f4742641e",
+    "content-hash": "20c84b9ab354a3f6345c2fe455280cd3",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -178,16 +178,16 @@
         },
         {
             "name": "twogether/laravel-url-signer",
-            "version": "dev-feature/SPPD-4298-php-84-upgrade",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Twogether/laravel-url-signer.git",
-                "reference": "d9576aa224c64f8d52948ae2f3a3b5976ee3c8b3"
+                "reference": "93eca73e770214004ce4c6e3fc73dee39575c74d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Twogether/laravel-url-signer/zipball/d9576aa224c64f8d52948ae2f3a3b5976ee3c8b3",
-                "reference": "d9576aa224c64f8d52948ae2f3a3b5976ee3c8b3",
+                "url": "https://api.github.com/repos/Twogether/laravel-url-signer/zipball/93eca73e770214004ce4c6e3fc73dee39575c74d",
+                "reference": "93eca73e770214004ce4c6e3fc73dee39575c74d",
                 "shasum": ""
             },
             "require": {
@@ -218,17 +218,15 @@
             "description": "Signs and validates URLs with public/private keys",
             "support": {
                 "issues": "https://github.com/Twogether/laravel-url-signer/issues",
-                "source": "https://github.com/Twogether/laravel-url-signer/tree/2.5.2-dev"
+                "source": "https://github.com/Twogether/laravel-url-signer/tree/2.5.2"
             },
-            "time": "2025-05-06T10:59:11+00:00"
+            "time": "2025-05-14T12:08:54+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "twogether/laravel-url-signer": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
