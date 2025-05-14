@@ -8,7 +8,7 @@
     "php": "^7.2.9|^8.0",
     "ext-json": "*",
     "ext-openssl": "*",
-    "twogether/laravel-url-signer": "^2.2",
+    "twogether/laravel-url-signer": "^2.5.2",
     "firebase/php-jwt": "^5.2|^6.0"
   },
 

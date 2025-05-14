@@ -67,7 +67,7 @@ class NetworkSSO
         return JWT::encode($payload,$this->private_key,'RS256');
     }
 
-    public function getImpersonateUrl(string $return_to = null, bool $stop = false)
+    public function getImpersonateUrl(?string $return_to = null, bool $stop = false)
     {
         if(!$return_to) {
             $return_to = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -85,13 +85,13 @@ class NetworkSSO
         return $this->getImpersonateUrl($return_to, true);
     }
 
-    public function loginRequiresReturn(array $params = null): bool
+    public function loginRequiresReturn(?array $params = null): bool
     {
         $params = $params ?? $_GET;
         return ($params['action'] ?? null) === 'refresh';
     }
 
-    public function getLogoutUrl(string $user_agent = null, array $query = [])
+    public function getLogoutUrl(?string $user_agent = null, array $query = [])
     {
         return $this->getSignedUrl(
             $this->getHostUrl("/sso/logout"),
@@ -100,22 +100,22 @@ class NetworkSSO
         );
     }
 
-    public function getLoginReturnUrl(string $user_agent = null)
+    public function getLoginReturnUrl(?string $user_agent = null)
     {
         return $this->getSignedUrl($this->getHostUrl("/sso/refresh"),$user_agent,['action' => 'refresh-complete']);
     }
 
-    public function getLoginUrl(string $user_agent = null)
+    public function getLoginUrl(?string $user_agent = null)
     {
         return $this->getSignedUrl($this->getHostUrl("/sso/login"),$user_agent,array_merge($this->additional_login_parameters,['action' => 'login']));
     }
 
-    public function getLogoutConfirmationUrl(string $user_agent = null)
+    public function getLogoutConfirmationUrl(?string $user_agent = null)
     {
         return $this->getSignedUrl($this->getHostUrl("/sso/logout"),$user_agent,['action' => 'logout-complete']);
     }
 
-	public function getRemoteLoginUrl($user_id,string $return_to = null,$strategy = null): string
+	public function getRemoteLoginUrl($user_id, ?string $return_to = null, $strategy = null): string
 	{
 		return $this->getSignedUrl($this->getHostUrl('/remote-login'),null,[
 			'uid' => $user_id,
@@ -123,7 +123,7 @@ class NetworkSSO
 			'return_to' => $return_to,
 		]);
 	}
-    public function validateUrl(string $url = null)
+    public function validateUrl(?string $url = null)
     {
         $this->urlSigner->validate($url ?: "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
     }
